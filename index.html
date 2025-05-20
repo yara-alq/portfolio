@@ -174,16 +174,11 @@
       50% { opacity: 0.2; }
       100% { transform: translateY(-100px) rotate(360deg); opacity: 0.1; }
     }
+  
     #certificates {
   padding: 4rem 2rem;
   max-width: 800px;
   margin: auto;
-}
-
-#certificates h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #2a2a72;
   text-align: center;
 }
 
@@ -192,6 +187,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin-top: 1rem;
 }
 
 .cert-grid img {
@@ -206,6 +202,28 @@
 
 .cert-grid img:hover {
   transform: scale(1.05);
+}
+
+/* نافذة عرض الشهادة */
+#lightbox {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 999;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: pointer;
 }
 
   </style>
@@ -228,6 +246,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#project">Project</a>
+       <a href="#certificates">Certificates</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -237,49 +256,65 @@
     <h2>About Me</h2>
     <div class="project">
       <p>
-        a Computer Science student passionate about web development, technology, and creating beautiful, user-friendly digital experiences. Always learning and growing 🚀
+       Motivated Computer Science graduate with practical experience, Passionate about web development, with a keen interest in creating user-friendly and visually engaging websites. Skilled in teamwork, communication, and problem-solving, and eager to contribute to innovative digital projects while continuously enhancing technical and design skills 🚀
       </p>
     </div>
   </section>
 
   <section id="project">
-    <h2>My Project</h2>
+    <h2>My Graduation Project</h2>
     <div class="project">
-      <h3>Graduation project</h3>
-      <p>This is a short description of my project. It solves a problem or shows my skills in coding, design, or problem solving.</p>
-      <p><a href="#">View Project</a></p>
-    </div>
-  </section>
-
-  <section id="resume">
-    <h2>Resume</h2>
-    <div class="resume">
-      <p>You can add a downloadable version of your resume here later.</p>
-      <p><a href="#">Download Resume (Coming Soon)</a></p>
+      <h3>A digital platform for unique Graduation Project</h3>
+      <p>This platform helps students find unique ideas for their graduation projects, avoiding repetition and allowing them to check similarities with previous GP submissions </p>
+      <p><a href="git add index.html">Tab to view</a></p>
     </div>
   </section>
 
   <section id="certificates">
   <h2>Certificates</h2>
   <div class="cert-grid">
-    <img src="cert1.png" alt="Certificate 1">
-    <img src="cert2.png" alt="Certificate 2">
-    <img src="cert3.png" alt="Certificate 3">
+    <img src="cert1.png" alt="Certificate 1" onclick="openLightbox(this.src)">
+    <img src="cert2.png" alt="Certificate 2" onclick="openLightbox(this.src)">
+    <img src="cert3.png" alt="Certificate 3" onclick="openLightbox(this.src)">
   </div>
 </section>
 
+<!-- نافذة تكبير الصورة -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="certificate enlarged">
+</div>
+
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="resume">
+      <p>You can download my resume below:</p>
+      <p><a href="resume-2.pdf">Download Resume </a></p>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
     <div class="contact-box">
-      <p>Let's connect! Reach me at: <a href="mailto:yara@example.com">yara@example.com</a></p>
-      <p>Or visit my <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+      <p>Let's connect! Reach me at: <a href="mailto:yarafsalq@gmail.com">yarafsalq@gmail.com</a></p>
+      <p>Or visit my <a href="https://www.linkedin.com/in/yara-alqhtani-8968612a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a></p>
     </div>
   </section>
 
   <footer>
     &copy; 2025 Yara Alqhtani. All rights reserved.
   </footer>
+  <script>
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
 
